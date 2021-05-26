@@ -1,4 +1,4 @@
-
+import ecs100.*;
 /**
  * Support class of Book
  * A Book contains an id, name, author, quantity, front cover image
@@ -31,11 +31,8 @@ public class Book
     /**
      * Constructor overloading
      */
-    public Book(int id, String nm, String auth, int qty) {
-        this.id = id;
-        this.name = nm;
-        this.author = auth;
-        this.quantity = qty;
+    public Book(int id, String nm, String author, int qty) {
+        this(id, nm, author, qty, DEFAULT_IMAGE);
     }
     
     /**
@@ -72,5 +69,17 @@ public class Book
      */
     public int getQty() {
         return this.quantity;
+    }
+    
+    /**
+     * display image on our gui
+     */
+    public void displayBook() {
+        double locX = 100;
+        double locY = 100;
+        final double WIDTH = 100;
+        final double HEIGHT = 100;
+        
+        UI.drawImage(this.image, locX, locY, WIDTH, HEIGHT);
     }
 }
