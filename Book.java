@@ -14,18 +14,28 @@ public class Book
     private String author;
     private int quantity;
     private String image;
-    static final String DEFAULT_IMAGE = "default.jpg";
+    static final String DEFAULT_IMAGE = "Book.png";
     
     /**
      * Constructor for objects of class Book
      */
-    public Book(int id, String nm, String auth, int qty) {
+    public Book(int id, String nm, String auth, int qty, String img) {
         // initialise instance variables
         this.id = id;
         this.name = nm;
         this.author = auth;
         this.quantity = qty;
-        
+        this.image = img;
+    }
+    
+    /**
+     * Constructor overloading
+     */
+    public Book(int id, String nm, String auth, int qty) {
+        this.id = id;
+        this.name = nm;
+        this.author = auth;
+        this.quantity = qty;
     }
     
     /**
