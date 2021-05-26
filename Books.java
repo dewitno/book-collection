@@ -44,7 +44,21 @@ public class Books
      * adds a book to the map
      */
     public void addBook() {
-    
+        final int MAX_QUANTITY = 99;
+        int quantity = -1;
+        
+        // ask the user for details
+        String name = UI.askString("Title: ");
+        String author = UI.askString("Author: ");
+        
+        // check boundaries for the number of books added to stock
+        do {
+            quantity = UI.askInt("Quantity: ");
+        } while (0 > quantity || quantity > MAX_QUANTITY);
+        
+        // increment the book id counter and add book to hashmap
+        this.currBookId++;
+        booksMap.put(this.currBookId, new Book(currBookId, name, author, quantity));
     }
     
     /**
@@ -52,7 +66,8 @@ public class Books
      * should refactor to find name
      */
     public void findBook(){
-    
+        int bookId = UI.askInt("Id: ");     // find book on ID - change to title
+        UI.println(booksMap.get(bookId).getName());
     }
     
     /**
