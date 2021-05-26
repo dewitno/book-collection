@@ -14,6 +14,7 @@ public class Book
     private String author;
     private int quantity;
     private String image;
+    static final String DEFAULT_IMAGE = "default.jpg";
     
     /**
      * Constructor for objects of class Book
