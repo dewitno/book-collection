@@ -69,9 +69,9 @@ public class Books
      * should refactor to find name
      */
     public void findBook(){
-        int bookId = UI.askInt("Id: ");     // find book on ID - change to title
-        UI.println(booksMap.get(bookId).getName());     // prints out book anme
-        booksMap.get(bookId).displayBook();     // shows book cover on canvas
+        String bookName = UI.askString("Title: ");     // find book on ID - change to title
+        UI.println(booksMap.get(bookName).getAuthor());     // prints out book name
+        booksMap.get(bookName).displayBook();     // shows book cover on canvas
     }
     
     /**
