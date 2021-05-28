@@ -14,7 +14,9 @@ public class Books
     // fields
     private HashMap<Integer, Book> booksMap;        // declaring the hasmap
     private int currBookId;                 // store the current id of book being added
-
+    private int bookId;
+    private String bookName;
+    
     /**
      * Constructor for objects of class Books
      */
@@ -34,7 +36,7 @@ public class Books
         booksMap.put(2, b2);
         booksMap.put(3, b3);
         booksMap.put(4, b4);
-        
+                        
         this.currBookId = 4;        // initialis the book id
         
         //this.menu();
@@ -65,13 +67,24 @@ public class Books
     }
     
     /**
-     * Finds a book based on id
-     * should refactor to find name
+     * Takes user input and sets it to book name
+     */
+    public String bookTitle(String title){
+        this.bookName = title;
+        return this.bookName;
+    }
+    
+    /**
+     * Finds a book based on title
      */
     public void findBook(){
-        String bookName = UI.askString("Title: ");     // find book on ID - change to title
-        UI.println(booksMap.get(bookName).getAuthor());     // prints out book name
-        booksMap.get(bookName).displayBook();     // shows book cover on canvas
+        do {
+            bookId++;
+        } while (bookId < currBookId || booksMap.get(bookId).getName().equals(bookName));   // find book on title
+        UI.println("Title: " + bookName);                               // prints out book name
+        UI.println("Author: " + booksMap.get(bookId).getAuthor());      // prints out author name 
+        UI.println("In stock: " + booksMap.get(bookId).getQty());    // prints out quantity in stock 
+        booksMap.get(bookId).displayBook();     // shows book cover on canvas
     }
     
     /**

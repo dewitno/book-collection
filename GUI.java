@@ -17,6 +17,7 @@ public class GUI
         Books bk = new Books();
         UI.initialise();
         UI.addButton("Add", bk::addBook);
+        UI.addTextField("Title", bk::bookTitle);
         UI.addButton("Find", bk::findBook);
         UI.addButton("All", bk::printAll);
         UI.addButton("Quit", UI::quit);
